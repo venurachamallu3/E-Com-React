@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import { products_API } from "./Config";
+import useGetProductDetail from "./useGetProductDetails";
 
 const ProductDetail = () =>{
 
     const {id} = useParams();
-    const [proddetail , setproddetail]= useState([])
+    const [proddetail , setproddetail]= useGetProductDetail(id);
 
-    useEffect(()=>{
+    // useEffect(()=>{
 
-        getProductDetail();
-    },[])
+    //     getProductDetail();
+    // },[])
 
-    async function getProductDetail(){
-        const prod = await fetch(products_API+"/"+id);
-        const prodjson = await prod.json();
-        setproddetail(prodjson);
-        // console.log("from api "+ prodjson)
-    }
+    // async function getProductDetail(){
+    //     const prod = await fetch(products_API+"/"+id);
+    //     const prodjson = await prod.json();
+    //     setproddetail(prodjson);
+    //     // console.log("from api "+ prodjson)
+    // }
 
 
 
